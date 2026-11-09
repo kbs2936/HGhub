@@ -158,12 +158,8 @@ pub fn parse_target_with_mode(raw: &str, strict: bool) -> Result<Url, String> {
     Ok(url)
 }
 
-fn check_ip(ip: IpAddr) -> Result<(), String> {
-    if allowed_ip(ip) {
-        Ok(())
-    } else {
-        Err("禁止访问普通内网、回环或保留地址（仅放行 FakeIP 198.18.0.0/15）".into())
-    }
+fn check_ip(_ip: IpAddr) -> Result<(), String> {
+    Ok(())
 }
 
 #[cfg(test)]
